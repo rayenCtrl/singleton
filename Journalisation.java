@@ -2,13 +2,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Journalisation
-{// Chaine de caractères représentant les messages de log.
+{
+    private static Journalisation uniqueInstance=null; // Singleton
     private String log;
     public Journalisation()
     {
         log = new String();
     }
-    // Méthode qui permet d'ajouter un message de log.
+    public static Journalisation getInstance(){
+        if (uniqueInstance==null)
+            synchronized(Journalisation.class){
+                if (uniqueInstance==null){
+                    uniqueInstance=new Journalisation();}
+
+            }
+        return uniqueInstance;
+    }
     public void ajouterLog(String log)
     {
 // On ajoute également la date du message.
@@ -22,4 +31,6 @@ public class Journalisation
     {
         return log;
     }
+
+
 }

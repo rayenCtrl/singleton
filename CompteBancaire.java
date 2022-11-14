@@ -2,7 +2,7 @@ public class CompteBancaire {
     // Classe représentant un compte bancaire simpliste.
         private int numero;
         private double solde;
-        Journalisation js=new Journalisation();
+        Journalisation js=Journalisation.getInstance();
         // Constructeur d'un CompteBancaire à partir de son numéro.
         public CompteBancaire(int numero)
         {
